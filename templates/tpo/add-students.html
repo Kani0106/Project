@@ -1,0 +1,74 @@
+{% extends '../teacher_base.html' %}
+{% load static %}
+
+{% block content %}
+
+<section class="container my-3 text-primary">
+    <h3 style="color: black;text-align: center;">Add Student Details</h3>
+    <div class="h-100 d-flex align-items-center justify-content-center text-center">
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="name" class="form-label"></label>
+                <input type="text" id="name" name="name" required class="form-control" placeholder="Name">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label"></label>
+                <input type="email" id="email" name="email" required class="form-control" placeholder="Email">
+            </div>
+            <div class="mb-3">
+                <label for="phone" class="form-label"></label>
+                <input type="text" id="phone" name="phone" required class="form-control" placeholder="Phone">
+            </div>
+            <div class="mb-3">
+                <label for="roll_no" class="form-label"></label>
+                <input type="number" id="roll_no" name="roll_no" required class="form-control" placeholder="Roll Number">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label"></label>
+                <input type="password" id="password" name="password" required class="form-control" placeholder="Password">
+            </div>
+            <div class="mb-3">
+                <label for="bio" class="form-label"></label>
+                <textarea id="bio" name="bio" class="form-control" placeholder="Bio"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="skills" class="form-label"></label>
+                <textarea id="skills" name="skills" class="form-control" placeholder="Skills"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="resume" class="form-label">Resume</label>
+                <input type="file" id="resume" name="resume" class="form-control" placeholder="Resume">
+            </div>
+            <div class="mb-3">
+                <label for="headshot" class="form-label">Profile Pic</label>
+                <input type="file" id="headshot" name="headshot" class="form-control" placeholder="Headshot">
+            </div>
+            <div class="mb-3">
+                <label for="linkedIn_link" class="form-label"></label>
+                <input type="url" id="linkedIn_link" name="linkedIn_link" class="form-control" placeholder="LinkedIn Link">
+            </div>
+            <div class="mb-3">
+                <label for="gitHub_link" class="form-label"></label>
+                <input type="url" id="gitHub_link" name="gitHub_link" class="form-control" placeholder="GitHub Link">
+            </div>
+            <button class="btn btn-warning" type="submit">Add Student</button>
+        </form>
+
+ 
+        <!-- Display messages -->
+        {% if messages %}
+            <div class="alert alert-dismissible fade show mt-3">
+                {% for message in messages %}
+                    <div{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+    </div>
+</section>
+<br><br><br>
+{% endblock content %}

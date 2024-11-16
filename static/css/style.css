@@ -1,0 +1,88 @@
+/* General body styles */
+body {
+  background: url('../img/placement_bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Manrope', sans-serif;
+  color: #333; /* Ensuring text is readable, adjust color as needed */
+}
+
+/* Navbar customization */
+header.p-3.text-bg-dark {
+  background-color: rgba(0, 0, 0, 0.7) !important; /* Adding transparency to the navbar */
+}
+
+.nav-link {
+  color: white !important; /* Ensuring nav links are white */
+}
+
+.nav-link:hover {
+  color: #f8f9fa !important;
+  text-decoration: underline;
+}
+
+/* Footer customization */
+footer {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+}
+
+footer a {
+  color: white; /* Making sure footer links are white */
+}
+
+footer a:hover {
+  color: #ccc; /* Lightening the link color on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  header.p-3.text-bg-dark, footer {
+      background-color: rgba(0, 0, 0, 0.9); /* Darker on smaller screens */
+  }
+}
+
+/* Social icons hover effects */
+.fa-brands {
+  transition: color 0.3s ease; /* Smooth transition for color change */
+}
+
+.fa-brands:hover {
+  color: #1da1f2; /* Example hover color, adjust as needed */
+}
+
+/* About Section Styling */
+.about-section {
+  background-color: rgba(255, 255, 255, 0.8); /* Light background for readability */
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px; /* Space from navbar */
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* Subtle shadow for depth */
+}
+
+.about-section h1, .about-section h3 {
+  color: #0056b3; /* Stylish color for headings */
+}
+
+.about-section p {
+  line-height: 1.6; /* Improved line spacing for readability */
+}
+
+.about-section ul {
+  padding-left: 20px; /* Proper indentation for list */
+  list-style-type: square; /* Stylish list item marker */
+}
+
+.about-section li {
+  margin-bottom: 10px; /* Space between list items */
+}
+
+/* Ensures the footer is always at the bottom */
+html, body {
+  height: 100%;
+}
+
+.container_fluid {
+  min-height: 100%;
+  position: relative;
+  padding-bottom: 100px; /* Height of the footer */
+}

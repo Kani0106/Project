@@ -1,0 +1,58 @@
+{% extends '../teacher_base.html' %}
+
+{% load static %}
+
+{% block content %}
+<section class="container my-3 text-primary">
+    <h3 style="color: black;text-align: center;">Add a New Job</h3>
+    <div class="h-100 d-flex align-items-center justify-content-center text-center">
+        
+        <form method="post" action="{% url 'add-job' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3">
+                <input type="text" id="position" name="position" required class="form-control" placeholder="Position">
+            </div>
+            <div class="mb-3">
+                <select id="company" name="company" required class="form-control">
+                    {% for company in companies %}
+                    <option value="{{ company.id }}">{{ company.company_name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="mb-3">
+                <textarea id="description" name="description" required class="form-control" placeholder="Description"></textarea>
+            </div>
+            <div class="mb-3">
+                <textarea id="requirements" name="requirements" required class="form-control" placeholder="Requirements"></textarea>
+            </div>
+            <div class="mb-3">
+                <input type="date" id="last_apply_date" name="last_apply_date" required class="form-control">
+            </div>
+            <div class="mb-3">
+                <input type="number" id="pay_rate" name="pay_rate" required class="form-control" placeholder="Pay Rate">
+            </div>
+            <div class="mb-3">
+                <input type="number" id="max_applicant" name="max_applicant" required class="form-control" placeholder="Maximum Applicants">
+            </div>
+            <div class="mb-3">
+                <input type="checkbox" id="is_active" name="is_active" class="form-check-input">
+                <label for="is_active" class="form-check-label" style="color: black;">Is Active</label>
+            </div>
+            <button type="submit" class="btn btn-warning">Add Job</button>
+        </form>
+
+        <!-- Display messages -->
+        {% if messages %}
+            <div class="alert alert-dismissible fade show mt-3">
+                {% for message in messages %}
+                    <div{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+    </div>
+</section>
+<br><br><br>
+{% endblock %}

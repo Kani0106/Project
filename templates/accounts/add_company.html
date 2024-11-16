@@ -1,0 +1,49 @@
+{% extends '../teacher_base.html' %}
+
+{% load static %}
+
+{% block content %}
+<section class="container my-3 text-primary">
+    <h3 style="color: black;text-align: center;">Add a New Company</h3>
+    <div class="h-100 d-flex align-items-center justify-content-center text-center">
+        
+        <form method="post" action="{% url 'add_company' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="company_name" class="form-label" ></label>
+                <input type="text" id="company_name" name="company_name" required class="form-control" placeholder="Company Name">
+            </div>
+            <div class="mb-3">
+                <label for="logo" class="form-label"></label>
+                <input type="file" id="logo" name="logo" required class="form-control" placeholder="Logo">
+            </div>
+            <div class="mb-3">
+                <label for="address" class="form-label"></label>
+                <textarea id="address" name="address" required class="form-control" placeholder="Address"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="desc" class="form-label"></label>
+                <textarea id="desc" name="desc" class="form-control" placeholder="Description (optional)"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="web_link" class="form-label"></label>
+                <input type="url" id="web_link" name="web_link" required class="form-control" placeholder="Website Link">
+            </div>
+            <button type="submit" class="btn btn-warning">Add Company</button>
+        </form>
+
+        <!-- Display messages -->
+        {% if messages %}
+            <div class="alert alert-dismissible fade show mt-3">
+                {% for message in messages %}
+                    <div{% if message.tags %} class="alert alert-{{ message.tags }}"{% endif %}>
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+    </div>
+</section>
+<br><br><br>
+{% endblock %}
